@@ -4,41 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.FruitActivity">
 
     <Button
-        android:id="@+id/btn_Basic"
+        android:id="@+id/btn_QueryByPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:ems="6"
-        android:text="基本使用"
+        android:layout_marginTop="20dp"
+        android:ems="7"
+        android:text="分页查询"
         android:textColor="@android:color/black"
         android:textSize="22sp" />
 
     <Button
-        android:id="@+id/btn_One_ToMany"
+        android:id="@+id/btn_QueryOnPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Basic"
+        android:layout_below="@+id/btn_QueryByPage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:ems="6"
-        android:text="一对多"
+        android:layout_marginTop="20dp"
+        android:ems="7"
+        android:text="按价格排序"
         android:textColor="@android:color/black"
         android:textSize="22sp" />
 
     <Button
-        android:id="@+id/btn_Many_ToMany"
+        android:id="@+id/btn_QueryAbovePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_QueryOnPrice"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/btn_One_ToMany"
-        android:ems="6"
-        android:text="多对多"
+        android:layout_marginTop="20dp"
+        android:ems="7"
+        android:text="价格查询"
         android:textColor="@android:color/black"
         android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/text_Show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_QueryAbovePrice"
+        android:paddingLeft="30dp"
+        android:paddingTop="20dp"
+        android:text="123" />
+
 
 </RelativeLayout>

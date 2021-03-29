@@ -1,4 +1,4 @@
-package com.boylab.greendaodemo.db.helper;
+package com.boylab.greendaodemo.db.manager;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

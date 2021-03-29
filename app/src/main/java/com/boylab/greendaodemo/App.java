@@ -2,7 +2,7 @@ package com.boylab.greendaodemo;
 
 import android.app.Application;
 
-import com.boylab.greendaodemo.db.helper.DBManager;
+import com.boylab.greendaodemo.db.manager.DBManager;
 
 public class App extends Application {
 

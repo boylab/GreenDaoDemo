@@ -8,10 +8,12 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
+import com.boylab.greendaodemo.db.table.Fruit;
 import com.boylab.greendaodemo.db.table.JoinTeachers;
 import com.boylab.greendaodemo.db.table.Student;
 import com.boylab.greendaodemo.db.table.Teacher;
 
+import com.boylab.greendaodemo.db.tableDao.FruitDao;
 import com.boylab.greendaodemo.db.tableDao.JoinTeachersDao;
 import com.boylab.greendaodemo.db.tableDao.StudentDao;
 import com.boylab.greendaodemo.db.tableDao.TeacherDao;
@@ -25,10 +27,12 @@ import com.boylab.greendaodemo.db.tableDao.TeacherDao;
  */
 public class DaoSession extends AbstractDaoSession {
 
+    private final DaoConfig fruitDaoConfig;
     private final DaoConfig joinTeachersDaoConfig;
     private final DaoConfig studentDaoConfig;
     private final DaoConfig teacherDaoConfig;
 
+    private final FruitDao fruitDao;
     private final JoinTeachersDao joinTeachersDao;
     private final StudentDao studentDao;
     private final TeacherDao teacherDao;
@@ -36,6 +40,9 @@ public class DaoSession extends AbstractDaoSession {
     public DaoSession(Database db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
         super(db);
+
+        fruitDaoConfig = daoConfigMap.get(FruitDao.class).clone();
+        fruitDaoConfig.initIdentityScope(type);
 
         joinTeachersDaoConfig = daoConfigMap.get(JoinTeachersDao.class).clone();
         joinTeachersDaoConfig.initIdentityScope(type);
@@ -46,19 +53,26 @@ public class DaoSession extends AbstractDaoSession {
         teacherDaoConfig = daoConfigMap.get(TeacherDao.class).clone();
         teacherDaoConfig.initIdentityScope(type);
 
+        fruitDao = new FruitDao(fruitDaoConfig, this);
         joinTeachersDao = new JoinTeachersDao(joinTeachersDaoConfig, this);
         studentDao = new StudentDao(studentDaoConfig, this);
         teacherDao = new TeacherDao(teacherDaoConfig, this);
 
+        registerDao(Fruit.class, fruitDao);
         registerDao(JoinTeachers.class, joinTeachersDao);
         registerDao(Student.class, studentDao);
         registerDao(Teacher.class, teacherDao);
     }
     
     public void clear() {
+        fruitDaoConfig.clearIdentityScope();
         joinTeachersDaoConfig.clearIdentityScope();
         studentDaoConfig.clearIdentityScope();
         teacherDaoConfig.clearIdentityScope();
+    }
+
+    public FruitDao getFruitDao() {
+        return fruitDao;
     }
 
     public JoinTeachersDao getJoinTeachersDao() {

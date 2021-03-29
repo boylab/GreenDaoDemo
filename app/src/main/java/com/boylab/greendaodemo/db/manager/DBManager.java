@@ -1,8 +1,12 @@
-package com.boylab.greendaodemo.db.helper;
+package com.boylab.greendaodemo.db.manager;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.boylab.greendaodemo.db.helper.FruitHelp;
+import com.boylab.greendaodemo.db.helper.JoinTeachersHelp;
+import com.boylab.greendaodemo.db.helper.StudentHelp;
+import com.boylab.greendaodemo.db.helper.TeacherHelp;
 import com.boylab.greendaodemo.db.tableDao.DaoMaster;
 import com.boylab.greendaodemo.db.tableDao.DaoSession;
 
@@ -65,7 +69,21 @@ public class DBManager {
      *  DBManager作为数据库唯一入口
      * 每一个Util都管理着数据库中的一个表，由DBManager进行统一管理
      */
+    private FruitHelp fruitHelp;
+    public synchronized FruitHelp getFruitHelp() {
+        if (fruitHelp == null){
+            fruitHelp = new FruitHelp(daoSession().getFruitDao());
+        }
+        return fruitHelp;
+    }
+
+    /**
+     * 多对多表管理类
+     */
     private TeacherHelp teacherHelp;
+    private StudentHelp studentHelp;
+    private JoinTeachersHelp joinTeachersHelp;
+
     public synchronized TeacherHelp getTeacherHelp() {
         if (teacherHelp == null){
             teacherHelp = new TeacherHelp(daoSession().getTeacherDao());
@@ -73,8 +91,6 @@ public class DBManager {
         return teacherHelp;
     }
 
-    private StudentHelp studentHelp;
-    private JoinTeachersHelp joinTeachersHelp;
     public synchronized StudentHelp getStudentHelp() {
         if (studentHelp == null){
             studentHelp = new StudentHelp(daoSession().getStudentDao());

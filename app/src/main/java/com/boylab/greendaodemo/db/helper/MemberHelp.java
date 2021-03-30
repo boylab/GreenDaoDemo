@@ -4,9 +4,9 @@ import com.boylab.greendaodemo.db.table.Member;
 
 import org.greenrobot.greendao.AbstractDao;
 
-public class MenberHelp extends BaseHelp<Member>{
+public class MemberHelp extends BaseHelp<Member>{
 
-    public MenberHelp(AbstractDao dao) {
+    public MemberHelp(AbstractDao dao) {
         super(dao);
     }
 }

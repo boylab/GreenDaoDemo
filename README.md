@@ -1,4 +1,4 @@
-# GreenDaoDemo
+﻿﻿﻿﻿# GreenDaoDemo
  greenDAO是适用于Android的轻量级快速ORM，可将对象映射到SQLite数据库。针对Android进行了高度优化，greenDAO提供了出色的性能，并占用了最少的内存。（特对greenDAO写个案例，顺便熟悉greenDAO的相关使用）
 
 # 在项目中添加 `greenDAO` 库
@@ -82,11 +82,14 @@ public class App extends Application {
 ```
 
 ```
-3、增加或修改数据库表类entity，都需要再编译；对已编译过的数据库表类entity进行修改，需要删除编译产生的构造方法（带`@Generated(hash =xxxxx)`注解的构造方法），再编译（才能起作用）。
+3、增加或修改数据库表类entity，都需要再编译；对已编译过的数据库表类entity进行修改，
+需要删除编译产生的构造方法（带`@Generated(hash =xxxxx)`注解的构造方法），再编译（才能起作用）。
 ```
 
 ```
-4、由于greenDAO 3.0 生成的字段添加了非空约束。字段的类型设置为基本类型(如:int)默认会添加非空约束,字段类型设置为对象类型(如:Integer)默认不会添加非空约束,而且最终生成的sql会使用对象类型
+4、由于greenDAO 3.0 生成的字段添加了非空约束。
+字段的类型设置为基本类型(如:int)默认会添加非空约束,
+字段类型设置为对象类型(如:Integer)默认不会添加非空约束,而且最终生成的sql会使用对象类型
 ```
 
 ```
@@ -156,10 +159,82 @@ public class User {
 
 ### 8、@ToOne 一对一
 ```
+@Entity
+public class Husband {
+    ...
+
+    //在Husband表中，添加wifiID
+    private Long wifiID;
+
+    在insert时，将wifiID同一对一关联的Wife的主键id绑定
+    @ToOne(joinProperty = "wifiID")
+    private Wife wife;
+	...
+}
 ```
 
+### 9、@ToMany 对多
+#### `一对多`
+```
+@Entity
+public class Leader {
+    ...
 
-### 9、@ToMany 一对多
+    @ToMany(referencedJoinProperty = "leaderId")
+    private List<Member> memberList;
+    ...
+}
+```
+```
+@Entity
+public class Member {
+    ...
+
+    @NotNull
+    private Long leaderId;  //在Member表中，添加leaderId
+    ...
+}
+
+```
+#### `多对多`(需要建中间表)
+```
+@Entiry
+public class Teacher {
+    ...
+
+    @ToMany
+    @JoinEntity(
+            entity = JoinTeachers.class,    //中间表
+            sourceProperty = "tid",         //实体属性
+            targetProperty = "sid"          //外链实体属性
+    )
+    private List<Student> students;
+    ...
+}
+```
+```
+@Entity
+public class Student {
+    ...
+
+    // 对多，@JoinEntity注解
+    @ToMany
+    @JoinEntity(
+            entity = JoinTeachers.class,    //中间表
+            sourceProperty = "sid",         //实体属性
+            targetProperty = "tid"          //外链实体属性
+    )
+    private List<Teacher> teachers;
+```
+```
+@Entity
+public class JoinTeachers {
+    @Id(autoincrement = true)
+    private Long id;
+    private Long tid;   //老师id
+    private Long sid;   //学生id
+}
+```
 
 ### 10、@Property：设置一个非默认关系映射所对应的列名，默认是使用字段名,例如：
 
@@ -177,3 +252,6 @@ private String userName;
 @OrderBy("date ASC")
 private List<Order> orders;
 ```
+
+
+

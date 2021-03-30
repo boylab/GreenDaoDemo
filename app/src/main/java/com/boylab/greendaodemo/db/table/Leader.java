@@ -11,6 +11,7 @@ import org.greenrobot.greendao.DaoException;
 import com.boylab.greendaodemo.db.tableDao.DaoSession;
 import com.boylab.greendaodemo.db.tableDao.MenberDao;
 import com.boylab.greendaodemo.db.tableDao.LeaderDao;
+import com.boylab.greendaodemo.db.tableDao.MemberDao;
 
 @Entity
 public class Leader {
@@ -84,18 +85,28 @@ public class Leader {
         this.sex = sex;
     }
 
+    @Override
+    public String toString() {
+        return "Leader{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                '}';
+    }
+
     /**
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 2121576554)
+    @Generated(hash = 971776121)
     public List<Member> getMemberList() {
         if (memberList == null) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
-            MenberDao targetDao = daoSession.getMenberDao();
+            MemberDao targetDao = daoSession.getMemberDao();
             List<Member> memberListNew = targetDao._queryLeader_MemberList(id);
             synchronized (this) {
                 if (memberList == null) {
@@ -153,15 +164,5 @@ public class Leader {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getLeaderDao() : null;
-    }
-
-    @Override
-    public String toString() {
-        return "Leader{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                '}';
     }
 }

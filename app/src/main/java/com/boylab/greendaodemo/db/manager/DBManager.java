@@ -7,11 +7,10 @@ import com.boylab.greendaodemo.db.helper.FruitHelp;
 import com.boylab.greendaodemo.db.helper.HusbandHelp;
 import com.boylab.greendaodemo.db.helper.JoinTeachersHelp;
 import com.boylab.greendaodemo.db.helper.LeaderHelp;
-import com.boylab.greendaodemo.db.helper.MenberHelp;
+import com.boylab.greendaodemo.db.helper.MemberHelp;
 import com.boylab.greendaodemo.db.helper.StudentHelp;
 import com.boylab.greendaodemo.db.helper.TeacherHelp;
 import com.boylab.greendaodemo.db.helper.WifeHelp;
-import com.boylab.greendaodemo.db.table.Leader;
 import com.boylab.greendaodemo.db.tableDao.DaoMaster;
 import com.boylab.greendaodemo.db.tableDao.DaoSession;
 
@@ -105,7 +104,7 @@ public class DBManager {
      * 一对多表管理类
      */
     private LeaderHelp leaderHelp;
-    private MenberHelp menberHelp;
+    private MemberHelp memberHelp;
     public synchronized LeaderHelp getLeaderHelp() {
         if (leaderHelp == null){
             leaderHelp = new LeaderHelp(daoSession().getLeaderDao());
@@ -113,11 +112,11 @@ public class DBManager {
         return leaderHelp;
     }
 
-    public synchronized MenberHelp getMenberHelp() {
-        if (menberHelp == null){
-            menberHelp = new MenberHelp(daoSession().getMenberDao());
+    public synchronized MemberHelp getMemberHelp() {
+        if (memberHelp == null){
+            memberHelp = new MemberHelp(daoSession().getMemberDao());
         }
-        return menberHelp;
+        return memberHelp;
     }
 
     /**

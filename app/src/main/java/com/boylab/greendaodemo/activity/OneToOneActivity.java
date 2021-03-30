@@ -56,7 +56,7 @@ public class OneToOneActivity extends AppCompatActivity {
             public void onClick(View v) {
                 queryHusbandB = husbandHelp.query(2L);
 
-                text_Show.setText("A丈夫 : "+ queryHusbandB.toString());
+                text_Show.setText("B丈夫 : "+ queryHusbandB.toString());
                 text_Show.append("\n");
             }
         });
@@ -92,8 +92,8 @@ public class OneToOneActivity extends AppCompatActivity {
         if (husbandHelp.count() == 0){
             Husband husband01 = new Husband("张三", 24, "boy", wifeA_ID);
 
-            Husband husband02 = new Husband("李四", 24, "boy", wifeB_ID);
-            //Husband husband02 = new Husband("李四", 24, "boy", -1L);
+//            Husband husband02 = new Husband("李四", 24, "boy", wifeB_ID);
+            Husband husband02 = new Husband("李四", 24, "boy", -1L);
 
             husbandHelp.insert(husband01);
             husbandHelp.insert(husband02);

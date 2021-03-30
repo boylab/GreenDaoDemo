@@ -25,7 +25,7 @@ public class DaoMaster extends AbstractDaoMaster {
         HusbandDao.createTable(db, ifNotExists);
         JoinTeachersDao.createTable(db, ifNotExists);
         LeaderDao.createTable(db, ifNotExists);
-        MenberDao.createTable(db, ifNotExists);
+        MemberDao.createTable(db, ifNotExists);
         StudentDao.createTable(db, ifNotExists);
         TeacherDao.createTable(db, ifNotExists);
         WifeDao.createTable(db, ifNotExists);
@@ -37,7 +37,7 @@ public class DaoMaster extends AbstractDaoMaster {
         HusbandDao.dropTable(db, ifExists);
         JoinTeachersDao.dropTable(db, ifExists);
         LeaderDao.dropTable(db, ifExists);
-        MenberDao.dropTable(db, ifExists);
+        MemberDao.dropTable(db, ifExists);
         StudentDao.dropTable(db, ifExists);
         TeacherDao.dropTable(db, ifExists);
         WifeDao.dropTable(db, ifExists);
@@ -63,7 +63,7 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(HusbandDao.class);
         registerDaoClass(JoinTeachersDao.class);
         registerDaoClass(LeaderDao.class);
-        registerDaoClass(MenberDao.class);
+        registerDaoClass(MemberDao.class);
         registerDaoClass(StudentDao.class);
         registerDaoClass(TeacherDao.class);
         registerDaoClass(WifeDao.class);

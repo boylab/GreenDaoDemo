@@ -27,9 +27,10 @@ public class Member {
         this.leaderId = leaderId;
     }
 
-    @Generated(hash = 1572158817)
+
+    @Generated(hash = 374673735)
     public Member(Long id, @NotNull Long leaderId, String name, int age,
-                  String sex) {
+            String sex) {
         this.id = id;
         this.leaderId = leaderId;
         this.name = name;
@@ -37,10 +38,12 @@ public class Member {
         this.sex = sex;
     }
 
-    @Generated(hash = 1678089316)
+
+    @Generated(hash = 367284327)
     public Member() {
     }
 
+    
     public Long getId() {
         return this.id;
     }

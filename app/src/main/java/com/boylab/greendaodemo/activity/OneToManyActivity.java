@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.boylab.greendaodemo.R;
 import com.boylab.greendaodemo.db.helper.LeaderHelp;
-import com.boylab.greendaodemo.db.helper.MenberHelp;
+import com.boylab.greendaodemo.db.helper.MemberHelp;
 import com.boylab.greendaodemo.db.manager.DBManager;
 import com.boylab.greendaodemo.db.table.Leader;
 import com.boylab.greendaodemo.db.table.Member;
@@ -20,7 +20,7 @@ public class OneToManyActivity extends AppCompatActivity {
     private TextView text_Show;
 
     private LeaderHelp leaderHelp = DBManager.newInstance().getLeaderHelp();
-    private MenberHelp menberHelp = DBManager.newInstance().getMenberHelp();
+    private MemberHelp memberHelp = DBManager.newInstance().getMemberHelp();
 
     private Leader queryLeaderA, queryLeaderB;
 
@@ -96,18 +96,18 @@ public class OneToManyActivity extends AppCompatActivity {
         /**
          * 录入两名领导下的员工
          */
-        if (menberHelp.count() == 0){
+        if (memberHelp.count() == 0){
             Member member01 = new Member("小刘", 24, "boy", leaderA_ID);
             Member member02 = new Member("小丽", 22, "girl", leaderA_ID);
             Member member03 = new Member("小吴", 27, "boy", leaderA_ID);
-            menberHelp.insert(member01);
-            menberHelp.insert(member02);
-            menberHelp.insert(member03);
+            memberHelp.insert(member01);
+            memberHelp.insert(member02);
+            memberHelp.insert(member03);
 
             Member member04 = new Member("小韩", 29, "boy", leaderB_ID);
             Member member05 = new Member("小颖", 26, "girl", leaderB_ID);
-            menberHelp.insert(member04);
-            menberHelp.insert(member05);
+            memberHelp.insert(member04);
+            memberHelp.insert(member05);
         }
 
     }

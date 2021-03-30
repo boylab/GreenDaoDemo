@@ -7,6 +7,10 @@ import org.greenrobot.greendao.AbstractDao;
 
 import java.util.List;
 
+/**
+ * 一个类维护一张数据库表
+ * 方法尽可能复用性高
+ */
 public class FruitHelp extends BaseHelp<Fruit>{
 
     public FruitHelp(AbstractDao dao) {

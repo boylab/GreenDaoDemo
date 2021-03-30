@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:ems="7"
-        android:text="价格查询"
+        android:text="五元以上水果"
         android:textColor="@android:color/black"
         android:textSize="22sp" />
 

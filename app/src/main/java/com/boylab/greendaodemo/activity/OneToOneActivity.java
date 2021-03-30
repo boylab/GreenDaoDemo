@@ -92,8 +92,8 @@ public class OneToOneActivity extends AppCompatActivity {
         if (husbandHelp.count() == 0){
             Husband husband01 = new Husband("张三", 24, "boy", wifeA_ID);
 
-//            Husband husband02 = new Husband("李四", 24, "boy", wifeB_ID);
-            Husband husband02 = new Husband("李四", 24, "boy", -1L);
+            Husband husband02 = new Husband("李四", 24, "boy", wifeB_ID);
+            //Husband husband02 = new Husband("李四", 24, "boy", -1L);    //如果不绑定wifeID，那么获取的wife对象会为空，
 
             husbandHelp.insert(husband01);
             husbandHelp.insert(husband02);

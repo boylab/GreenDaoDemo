@@ -3,12 +3,15 @@ package com.boylab.greendaodemo.db.table;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Index;
+import org.greenrobot.greendao.annotation.Property;
 
 @Entity
 public class Fruit {
     @Id(autoincrement = true)
     private Long id;
 
+    @Index(unique = true)
     private String name;
     private float price;
     private float weigh;

@@ -1,55 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.ToManyActivity">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_Teacher"
+        android:id="@+id/btn_HusbandA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="9"
-        android:text="查询A老师"
+        android:text="查询A领导"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/btn_Teacher_Students"
+        android:id="@+id/btn_HusbandA_Wifes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Teacher"
-        android:layout_alignLeft="@+id/btn_Teacher"
+        android:layout_below="@+id/btn_HusbandA"
+        android:layout_alignLeft="@+id/btn_HusbandA"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="9"
-        android:text="A老师的学生"
+        android:text="A领导的员工"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/btn_Student"
+        android:id="@+id/btn_HusbandB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
         android:ems="9"
-        android:text="查询mike学生"
+        android:text="查询B领导"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/btn_Student_Teachers"
+        android:id="@+id/btn_HusbandB_Wifes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Student"
-        android:layout_alignLeft="@+id/btn_Student"
+        android:layout_below="@+id/btn_HusbandB"
+        android:layout_alignLeft="@+id/btn_HusbandB"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="9"
-        android:text="mike学生的老师"
+        android:text="B领导的员工"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
@@ -57,7 +53,7 @@
         android:id="@+id/text_Show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btn_Teacher_Students"
+        android:layout_below="@+id/btn_HusbandA_Wifes"
         android:paddingLeft="30dp"
         android:paddingTop="20dp"
         android:text="123" />

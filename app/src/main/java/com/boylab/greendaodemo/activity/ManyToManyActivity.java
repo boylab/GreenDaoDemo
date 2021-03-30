@@ -12,14 +12,13 @@ import com.boylab.greendaodemo.db.helper.JoinTeachersHelp;
 import com.boylab.greendaodemo.db.helper.StudentHelp;
 import com.boylab.greendaodemo.db.helper.TeacherHelp;
 import com.boylab.greendaodemo.db.manager.DBManager;
-import com.boylab.greendaodemo.db.table.Fruit;
 import com.boylab.greendaodemo.db.table.JoinTeachers;
 import com.boylab.greendaodemo.db.table.Student;
 import com.boylab.greendaodemo.db.table.Teacher;
 
 import java.util.List;
 
-public class ToManyActivity extends AppCompatActivity {
+public class ManyToManyActivity extends AppCompatActivity {
 
     private TextView text_Show;
 
@@ -32,10 +31,10 @@ public class ToManyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_many);
+        setContentView(R.layout.activity_many_to_many);
 
         text_Show = findViewById(R.id.text_Show);
-
+        entryData();
 
         findViewById(R.id.btn_Teacher).setOnClickListener(new View.OnClickListener() {
             @Override

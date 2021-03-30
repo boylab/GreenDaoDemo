@@ -97,6 +97,4 @@ public class BaseHelp<T> {
         return mDao.detach(item);
     }
 
-
-
 }

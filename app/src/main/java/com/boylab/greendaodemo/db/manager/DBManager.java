@@ -4,9 +4,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.boylab.greendaodemo.db.helper.FruitHelp;
+import com.boylab.greendaodemo.db.helper.HusbandHelp;
 import com.boylab.greendaodemo.db.helper.JoinTeachersHelp;
+import com.boylab.greendaodemo.db.helper.LeaderHelp;
+import com.boylab.greendaodemo.db.helper.MenberHelp;
 import com.boylab.greendaodemo.db.helper.StudentHelp;
 import com.boylab.greendaodemo.db.helper.TeacherHelp;
+import com.boylab.greendaodemo.db.helper.WifeHelp;
+import com.boylab.greendaodemo.db.table.Leader;
 import com.boylab.greendaodemo.db.tableDao.DaoMaster;
 import com.boylab.greendaodemo.db.tableDao.DaoSession;
 
@@ -75,6 +80,44 @@ public class DBManager {
             fruitHelp = new FruitHelp(daoSession().getFruitDao());
         }
         return fruitHelp;
+    }
+
+    /**
+     * 一对多表管理类
+     */
+    private HusbandHelp husbandHelp;
+    private WifeHelp wifeHelp;
+    public synchronized HusbandHelp getHusbandHelp() {
+        if (husbandHelp == null){
+            husbandHelp = new HusbandHelp(daoSession().getHusbandDao());
+        }
+        return husbandHelp;
+    }
+
+    public synchronized WifeHelp getWifeHelp() {
+        if (wifeHelp == null){
+            wifeHelp = new WifeHelp(daoSession().getWifeDao());
+        }
+        return wifeHelp;
+    }
+
+    /**
+     * 一对多表管理类
+     */
+    private LeaderHelp leaderHelp;
+    private MenberHelp menberHelp;
+    public synchronized LeaderHelp getLeaderHelp() {
+        if (leaderHelp == null){
+            leaderHelp = new LeaderHelp(daoSession().getLeaderDao());
+        }
+        return leaderHelp;
+    }
+
+    public synchronized MenberHelp getMenberHelp() {
+        if (menberHelp == null){
+            menberHelp = new MenberHelp(daoSession().getMenberDao());
+        }
+        return menberHelp;
     }
 
     /**

@@ -4,20 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.boylab.greendaodemo.R;
-import com.boylab.greendaodemo.db.manager.DBManager;
-import com.boylab.greendaodemo.db.helper.JoinTeachersHelp;
-import com.boylab.greendaodemo.db.helper.StudentHelp;
-import com.boylab.greendaodemo.db.helper.TeacherHelp;
-import com.boylab.greendaodemo.db.table.Fruit;
-import com.boylab.greendaodemo.db.table.JoinTeachers;
-import com.boylab.greendaodemo.db.table.Student;
-import com.boylab.greendaodemo.db.table.Teacher;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,11 +23,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //一对一
+        findViewById(R.id.btn_One_ToOne).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, OneToOneActivity.class));
+            }
+        });
+
         //一对多
         findViewById(R.id.btn_One_ToMany).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ToManyActivity.class));
+                startActivity(new Intent(MainActivity.this, OneToManyActivity.class));
             }
         });
 
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_Many_ToMany).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ToManyActivity.class));
+                startActivity(new Intent(MainActivity.this, ManyToManyActivity.class));
             }
         });
 

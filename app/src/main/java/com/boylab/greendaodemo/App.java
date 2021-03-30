@@ -14,3 +14,9 @@ public class App extends Application {
         DBManager.newInstance().setDataBase(this);
     }
 }
+
+
+
+
+
+

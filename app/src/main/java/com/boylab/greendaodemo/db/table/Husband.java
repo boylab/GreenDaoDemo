@@ -170,4 +170,15 @@ public class Husband {
         myDao = daoSession != null ? daoSession.getHusbandDao() : null;
     }
 
+    @Override
+    public String toString() {
+        return "Husband{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", wifiID=" + wifiID +
+                ", wife=" + wife +
+                '}';
+    }
 }

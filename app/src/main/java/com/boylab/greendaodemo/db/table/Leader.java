@@ -2,7 +2,6 @@ package com.boylab.greendaodemo.db.table;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.ToMany;
 import org.greenrobot.greendao.annotation.Unique;
 
@@ -25,7 +24,7 @@ public class Leader {
     private String sex;
 
     @ToMany(referencedJoinProperty = "leaderId")
-    private List<Menber> memberList;
+    private List<Member> memberList;
 
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
@@ -90,14 +89,14 @@ public class Leader {
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
     @Generated(hash = 2121576554)
-    public List<Menber> getMemberList() {
+    public List<Member> getMemberList() {
         if (memberList == null) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             MenberDao targetDao = daoSession.getMenberDao();
-            List<Menber> memberListNew = targetDao._queryLeader_MemberList(id);
+            List<Member> memberListNew = targetDao._queryLeader_MemberList(id);
             synchronized (this) {
                 if (memberList == null) {
                     memberList = memberListNew;

@@ -11,7 +11,7 @@ import com.boylab.greendaodemo.db.helper.LeaderHelp;
 import com.boylab.greendaodemo.db.helper.MenberHelp;
 import com.boylab.greendaodemo.db.manager.DBManager;
 import com.boylab.greendaodemo.db.table.Leader;
-import com.boylab.greendaodemo.db.table.Menber;
+import com.boylab.greendaodemo.db.table.Member;
 
 import java.util.List;
 
@@ -45,12 +45,12 @@ public class OneToManyActivity extends AppCompatActivity {
         findViewById(R.id.btn_LeaderA_Menbers).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Menber> leaderMenbers = queryLeaderA.getMemberList();
+                List<Member> leaderMembers = queryLeaderA.getMemberList();
 
-                text_Show.append("A领导的员工有 size = "+leaderMenbers.size());
-                for (Menber menber:leaderMenbers) {
+                text_Show.append("A领导的员工有 size = "+ leaderMembers.size());
+                for (Member member : leaderMembers) {
                     text_Show.append("\n");
-                    text_Show.append(menber.toString());
+                    text_Show.append(member.toString());
                 }
             }
         });
@@ -68,12 +68,12 @@ public class OneToManyActivity extends AppCompatActivity {
         findViewById(R.id.btn_LeaderB_Menbers).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Menber> leaderMenbers = queryLeaderB.getMemberList();
+                List<Member> leaderMembers = queryLeaderB.getMemberList();
 
-                text_Show.append("A领导的员工有 size = "+leaderMenbers.size());
-                for (Menber menber:leaderMenbers) {
+                text_Show.append("A领导的员工有 size = "+ leaderMembers.size());
+                for (Member member : leaderMembers) {
                     text_Show.append("\n");
-                    text_Show.append(menber.toString());
+                    text_Show.append(member.toString());
                 }
             }
         });
@@ -97,17 +97,17 @@ public class OneToManyActivity extends AppCompatActivity {
          * 录入两名领导下的员工
          */
         if (menberHelp.count() == 0){
-            Menber menber01 = new Menber("小刘", 24, "boy", leaderA_ID);
-            Menber menber02 = new Menber("小丽", 22, "girl", leaderA_ID);
-            Menber menber03 = new Menber("小吴", 27, "boy", leaderA_ID);
-            menberHelp.insert(menber01);
-            menberHelp.insert(menber02);
-            menberHelp.insert(menber03);
+            Member member01 = new Member("小刘", 24, "boy", leaderA_ID);
+            Member member02 = new Member("小丽", 22, "girl", leaderA_ID);
+            Member member03 = new Member("小吴", 27, "boy", leaderA_ID);
+            menberHelp.insert(member01);
+            menberHelp.insert(member02);
+            menberHelp.insert(member03);
 
-            Menber menber04 = new Menber("小韩", 29, "boy", leaderB_ID);
-            Menber menber05 = new Menber("小颖", 26, "girl", leaderB_ID);
-            menberHelp.insert(menber04);
-            menberHelp.insert(menber05);
+            Member member04 = new Member("小韩", 29, "boy", leaderB_ID);
+            Member member05 = new Member("小颖", 26, "girl", leaderB_ID);
+            menberHelp.insert(member04);
+            menberHelp.insert(member05);
         }
 
     }

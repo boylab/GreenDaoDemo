@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="9"
-        android:text="查询A领导"
+        android:text="查询A丈夫"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="9"
-        android:text="A领导的员工"
+        android:text="A丈夫的妻子"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
@@ -32,7 +32,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
         android:ems="9"
-        android:text="查询B领导"
+        android:text="查询B丈夫"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="9"
-        android:text="B领导的员工"
+        android:text="B丈夫的妻子"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 

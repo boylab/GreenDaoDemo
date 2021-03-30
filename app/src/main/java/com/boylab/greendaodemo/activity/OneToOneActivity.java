@@ -11,11 +11,7 @@ import com.boylab.greendaodemo.db.helper.HusbandHelp;
 import com.boylab.greendaodemo.db.helper.WifeHelp;
 import com.boylab.greendaodemo.db.manager.DBManager;
 import com.boylab.greendaodemo.db.table.Husband;
-import com.boylab.greendaodemo.db.table.Leader;
-import com.boylab.greendaodemo.db.table.Menber;
 import com.boylab.greendaodemo.db.table.Wife;
-
-import java.util.List;
 
 public class OneToOneActivity extends AppCompatActivity {
 
@@ -81,8 +77,8 @@ public class OneToOneActivity extends AppCompatActivity {
         /**
          * 录入两名妻子
          */
-        Wife wifeA = new Wife("刘经理", 35, "man");
-        Wife wifeB = new Wife("张经理", 28, "woman");
+        Wife wifeA = new Wife("李芳", 23, "girl");
+        Wife wifeB = new Wife("许依婷", 22, "girl");
         long wifeA_ID = 0, wifeB_ID = 0;
 
         if (wifeHelp.count() == 0){
@@ -91,20 +87,16 @@ public class OneToOneActivity extends AppCompatActivity {
         }
 
         /**
-         * 录入两名领导下的员工
+         * 录入两名丈夫
          */
-        if (menberHelp.count() == 0){
-            Menber menber01 = new Menber("小刘", 24, "boy", wifeA_ID);
-            Menber menber02 = new Menber("小丽", 22, "girl", wifeA_ID);
-            Menber menber03 = new Menber("小吴", 27, "boy", wifeA_ID);
-            menberHelp.insert(menber01);
-            menberHelp.insert(menber02);
-            menberHelp.insert(menber03);
+        if (husbandHelp.count() == 0){
+            Husband husband01 = new Husband("张三", 24, "boy", wifeA_ID);
 
-            Menber menber04 = new Menber("小韩", 29, "boy", wifeB_ID);
-            Menber menber05 = new Menber("小颖", 26, "girl", wifeB_ID);
-            menberHelp.insert(menber04);
-            menberHelp.insert(menber05);
+            Husband husband02 = new Husband("李四", 24, "boy", wifeB_ID);
+            //Husband husband02 = new Husband("李四", 24, "boy", -1L);
+
+            husbandHelp.insert(husband01);
+            husbandHelp.insert(husband02);
         }
     }
 }

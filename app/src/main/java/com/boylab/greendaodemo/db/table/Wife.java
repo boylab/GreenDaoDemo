@@ -66,4 +66,13 @@ public class Wife {
         this.sex = sex;
     }
 
+    @Override
+    public String toString() {
+        return "Wife{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                '}';
+    }
 }

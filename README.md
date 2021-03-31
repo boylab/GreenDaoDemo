@@ -252,6 +252,85 @@ private String userName;
 @OrderBy("date ASC")
 private List<Order> orders;
 ```
+# greenDAO提供的原始方法的作用及解释
 
+### 1、DAO增加
+```
+long    insert(T entity)                    // 插入指定实体
+void    insertInTx(T... entities)
+void    insertInTx(java.lang.Iterable<t> entities)
+void    insertInTx(java.lang.Iterable<t> entities, boolean setPrimaryKey)
+long    insertWithoutSettingPk(T entity)    // 插入指定实体，无主键
+long    insertOrReplace(T entity)           // 插入或替换指定实体
+void    insertOrReplaceInTx(T... entities)
+void    insertOrReplaceInTx(java.lang.Iterable<t> entities)
+void    insertOrReplaceInTx(java.lang.Iterable<t> entities, boolean setPrimaryKey)
+void    save(T entity)                      // 依赖指定的主键插入或修改实体
+void    saveInTx(T... entities)
+void    saveInTx(java.lang.Iterable<t> entities)
+```
 
+### 2、DAO删除
+```
+void    deleteAll()             // 删除所有
+void    delete(T entity)        // 删除指定的实体
+void    deleteInTx(T... entities)
+void    deleteInTx(java.lang.Iterable<t> entities)
+void    deleteByKey(K key)      // 删除指定主键对应的实体
+void    deleteByKeyInTx(K... keys)
+void    deleteByKeyInTx(java.lang.Iterable<k> keys)
+```
 
+### 3、DAO查询
+```
+List<T> loadAll()
+T load(K key)
+T loadByRowId(long rowId)
+```
+```
+queryBuilder()  // greenDAO下主要查询方法
+
+QueryBuilder<T> where(WhereCondition cond, WhereCondition... condMore)                          // 条件，AND 连接
+QueryBuilder<T> whereOr(WhereCondition cond1, WhereCondition cond2, WhereCondition... condMore) // 条件，OR 连接
+QueryBuilder<T> distinct()                          // 去重，例如使用联合查询时
+QueryBuilder<T> limit(int limit)                    // 限制返回数
+QueryBuilder<T> offset(int offset)                  // 偏移结果起始位，配合limit(int)使用
+QueryBuilder<T> orderAsc(Property... properties)    // 排序，升序
+QueryBuilder<T> orderDesc(Property... properties)   // 排序，降序
+QueryBuilder<T> orderCustom(Property property, String customOrderForProperty)  // 排序，自定义
+QueryBuilder<T> orderRaw(String rawOrder)           // 排序，SQL 语句
+QueryBuilder<T> preferLocalizedStringOrder()        // 本地化字符串排序，用于加密数据库无效
+QueryBuilder<T> stringOrderCollation(String stringOrderCollation)   // 自定义字符串排序，默认不区分大小写
+WhereCondition and(WhereCondition cond1, WhereCondition cond2, WhereCondition... condMore)  // 条件，AND 连接
+WhereCondition or(WhereCondition cond1, WhereCondition cond2, WhereCondition... condMore)   // 条件，OR 连接
+```
+
+### 4、DAO修改
+```
+void    update(T entity)
+void    updateInTx(T... entities)
+void    updateInTx(java.lang.Iterable<t> entities)
+```
+### 5、DAO其他
+```
+void refresh(T entity)      // 从数据库获取值刷新本地实体
+long count()                // 数量
+boolean detach(T entity)    // 从域中分离实体
+void detachAll()            // 从域中分离所有实体
+```
+# R8, ProGuard混淆
+在 `proguard-rules.pro`中添加混淆
+```
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+    public static java.lang.String TABLENAME;
+}
+-keep class **$Properties { *; }
+
+# If you DO use SQLCipher:
+-keep class org.greenrobot.greendao.database.SqlCipherEncryptedHelper { *; }
+
+# If you do NOT use SQLCipher:
+-dontwarn net.sqlcipher.database.**
+# If you do NOT use RxJava:
+-dontwarn rx.**
+```

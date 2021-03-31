@@ -13,6 +13,9 @@ public class BaseHelp<T> {
         mDao = dao;
     }
 
+    /**
+     * 新增
+     */
     public long insert(T item) {
         return mDao.insert(item);
     }
@@ -25,6 +28,9 @@ public class BaseHelp<T> {
         mDao.insertInTx(items);
     }
 
+    /**
+     * 新增或修改
+     */
     public long insertOrUpdate(T item) {
         return mDao.insertOrReplace(item);
     }
@@ -37,6 +43,9 @@ public class BaseHelp<T> {
         mDao.insertOrReplaceInTx(items);
     }
 
+    /**
+     * 删除
+     */
     public void deleteByKey(Long key) {
         mDao.deleteByKey(key);
     }
@@ -57,6 +66,9 @@ public class BaseHelp<T> {
         mDao.deleteAll();
     }
 
+    /**
+     * 修改
+     */
     public void update(T item) {
         mDao.update(item);
     }
@@ -69,6 +81,9 @@ public class BaseHelp<T> {
         mDao.updateInTx(items);
     }
 
+    /**
+     * 查询
+     */
     public T query(Long key) {
         return mDao.load(key);
     }

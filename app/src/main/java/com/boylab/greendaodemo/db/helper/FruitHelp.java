@@ -42,7 +42,6 @@ public class FruitHelp extends BaseHelp<Fruit>{
                 .list();
     }
 
-
     /**
      * 增加功能、添加方法
      */

@@ -10,10 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenDaoDemo">
-        <activity android:name=".activity.OneToOneActivity"/>
-        <activity android:name=".activity.OneToManyActivity"/>
-        <activity android:name=".activity.ManyToManyActivity" />
-        <activity android:name=".activity.FruitActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.FruitActivity" />
+        <activity android:name=".activity.OneToOneActivity"/>
+        <activity android:name=".activity.OneToManyActivity"/>
+        <activity android:name=".activity.ManyToManyActivity" />
     </application>
 
 </manifest>

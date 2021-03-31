@@ -256,29 +256,29 @@ private List<Order> orders;
 
 ### 1、DAO增加
 ```
-long    insert(T entity)                    // 插入指定实体
-void    insertInTx(T... entities)
-void    insertInTx(java.lang.Iterable<t> entities)
-void    insertInTx(java.lang.Iterable<t> entities, boolean setPrimaryKey)
-long    insertWithoutSettingPk(T entity)    // 插入指定实体，无主键
-long    insertOrReplace(T entity)           // 插入或替换指定实体
-void    insertOrReplaceInTx(T... entities)
-void    insertOrReplaceInTx(java.lang.Iterable<t> entities)
-void    insertOrReplaceInTx(java.lang.Iterable<t> entities, boolean setPrimaryKey)
-void    save(T entity)                      // 依赖指定的主键插入或修改实体
-void    saveInTx(T... entities)
-void    saveInTx(java.lang.Iterable<t> entities)
+long insert(T entity)                    // 插入指定实体
+void insertInTx(T... entities)
+void insertInTx(java.lang.Iterable<t> entities)
+void insertInTx(java.lang.Iterable<t> entities, boolean setPrimaryKey)
+long insertWithoutSettingPk(T entity)    // 插入指定实体，无主键
+long insertOrReplace(T entity)           // 插入或替换指定实体
+void insertOrReplaceInTx(T... entities)
+void insertOrReplaceInTx(java.lang.Iterable<t> entities)
+void insertOrReplaceInTx(java.lang.Iterable<t> entities, boolean setPrimaryKey)
+void save(T entity)                      // 依赖指定的主键插入或修改实体
+void saveInTx(T... entities)
+void saveInTx(java.lang.Iterable<t> entities)
 ```
 
 ### 2、DAO删除
 ```
-void    deleteAll()             // 删除所有
-void    delete(T entity)        // 删除指定的实体
-void    deleteInTx(T... entities)
-void    deleteInTx(java.lang.Iterable<t> entities)
-void    deleteByKey(K key)      // 删除指定主键对应的实体
-void    deleteByKeyInTx(K... keys)
-void    deleteByKeyInTx(java.lang.Iterable<k> keys)
+void deleteAll()             // 删除所有
+void delete(T entity)        // 删除指定的实体
+void deleteInTx(T... entities)
+void deleteInTx(java.lang.Iterable<t> entities)
+void deleteByKey(K key)      // 删除指定主键对应的实体
+void deleteByKeyInTx(K... keys)
+void deleteByKeyInTx(java.lang.Iterable<k> keys)
 ```
 
 ### 3、DAO查询
@@ -307,9 +307,9 @@ WhereCondition or(WhereCondition cond1, WhereCondition cond2, WhereCondition... 
 
 ### 4、DAO修改
 ```
-void    update(T entity)
-void    updateInTx(T... entities)
-void    updateInTx(java.lang.Iterable<t> entities)
+void update(T entity)
+void updateInTx(T... entities)
+void updateInTx(java.lang.Iterable<t> entities)
 ```
 ### 5、DAO其他
 ```

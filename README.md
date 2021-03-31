@@ -318,6 +318,12 @@ long count()                // 数量
 boolean detach(T entity)    // 从域中分离实体
 void detachAll()            // 从域中分离所有实体
 ```
+# greenDAO 对时间的操作
+```
+待研究，待完善
+Date???   String???     TimeMillis???
+```
+
 # R8, ProGuard混淆
 在 `proguard-rules.pro`中添加混淆
 ```

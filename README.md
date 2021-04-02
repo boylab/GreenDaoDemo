@@ -340,3 +340,7 @@ Date???   String???     TimeMillis???
 # If you do NOT use RxJava:
 -dontwarn rx.**
 ```
+
+# 数据库框架对比图（含greenDAO）
+
+![greenDAO对比图](https://github.com/boylab/GreenDaoDemo/blob/main/art/compare.png)
